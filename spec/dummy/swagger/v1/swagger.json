@@ -37,10 +37,28 @@
         ],
         "responses": {
           "201": {
-            "description": "valid request"
+            "description": "valid request",
+            "examples": {
+              "application/json": {
+                "errors": {
+                  "content": [
+                    "can't be blank"
+                  ]
+                }
+              }
+            }
           },
           "422": {
-            "description": "invalid request"
+            "description": "invalid request",
+            "examples": {
+              "application/json": {
+                "errors": {
+                  "content": [
+                    "can't be blank"
+                  ]
+                }
+              }
+            }
           }
         }
       },
@@ -49,8 +67,6 @@
           "Blogs API"
         ],
         "summary": "searches existing blogs",
-        "description": null,
-        "consumes": null,
         "produces": [
           "application/json"
         ],
@@ -59,7 +75,12 @@
         ],
         "responses": {
           "200": {
-            "description": "valid request"
+            "description": "valid request",
+            "examples": {
+              "application/json": [
+
+              ]
+            }
           }
         }
       }
@@ -71,7 +92,6 @@
         ],
         "summary": "retrieves a specific blog",
         "description": "For the id passed in the path, it searches and retrieves a blog against that id. If blog not found it returns a 404",
-        "consumes": null,
         "produces": [
           "application/json"
         ],
@@ -79,15 +99,26 @@
           {
             "name": "id",
             "in": "path",
-            "type": "string"
+            "type": "string",
+            "required": true
           }
         ],
         "responses": {
           "200": {
-            "description": "blog found"
+            "description": "blog found",
+            "examples": {
+              "application/json": {
+                "id": 1,
+                "title": "foo",
+                "content": "bar"
+              }
+            }
           },
           "404": {
-            "description": "blog not found"
+            "description": "blog not found",
+            "examples": {
+              "application/json": "null"
+            }
           }
         }
       }
